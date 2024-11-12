@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("iserra-api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+15277583490703d81e004284c8a50b727341a8f6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e7d94779b7de5f75c1abc546e2709e3de1e0d4a8")]
 [assembly: System.Reflection.AssemblyProductAttribute("iserra-api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("iserra-api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

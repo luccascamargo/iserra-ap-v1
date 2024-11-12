@@ -9,16 +9,16 @@ public sealed class Photo
     public string Url { get; set; }
     public string Chave { get; set; }
     public Guid AnuncioId { get; set; }
-    [ForeignKey("AdvertId")] public Advert Anuncio { get; set; }
+
+    [ForeignKey("AdvertId")] 
+    public Advert Anuncio { get; set; }
     
     private Photo() {}
 
-    public Photo(string url, string chave, Guid anuncioId, Advert anuncio)
+    public Photo(string url, string chave)
     {
-        Id = new Guid();
+        Id = Guid.NewGuid();
         Url = url;
         Chave = chave;
-        AnuncioId = anuncioId;
-        Anuncio = anuncio;
     }
 }

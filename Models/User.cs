@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 using iserra_api.Enums;
-using Microsoft.EntityFrameworkCore;
 
 namespace iserra_api.Models;
 
@@ -13,18 +13,19 @@ public sealed class User
     public string Email { get; set; }
     public string Telefone { get; set; }
     public bool Ativo { get; set; }
-    public Plan Plano { get; set; } = Plan.GRATIS;
+    public Plan Plano { get; set; } = Plan.gratis;
     [DataType(DataType.DateTime)] public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
     [DataType(DataType.DateTime)] public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
-    public string Imagen { get; set; }
+    public string Imagem { get; set; }
     public string Senha { get; set; }
-    public ICollection<Advert> Anuncios { get; set; }
+    [JsonIgnore]
+    public ICollection<Advert>? Anuncios { get; set; }
     
     private User() {}
 
     public User(string stripeId, string nome, string sobrenome, string email, string telefone, bool ativo, Plan plano, string imagen, string senha, ICollection<Advert> anuncios)
     {
-        Id = new Guid();
+        Id = Guid.NewGuid();
         StripeId = stripeId;
         Nome = nome;
         Sobrenome = sobrenome;
@@ -32,7 +33,7 @@ public sealed class User
         Telefone = telefone;
         Ativo = ativo;
         Plano = plano;
-        Imagen = imagen;
+        Imagem = imagen;
         Senha = senha;
         Anuncios = anuncios;
     }

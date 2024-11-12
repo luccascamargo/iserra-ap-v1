@@ -1,0 +1,52 @@
+# Compilação
+bin/
+obj/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Configuração do Visual Studio Code
+.vscode/
+
+# Logs, pacotes, banco de dados local, e cache do sistema
+*.log
+*.cache
+*.pdb
+*.mdb
+*.opendb
+*.pidb
+*.sln.*
+*.sln.iml
+
+# Pacotes de NuGet e diretórios de dependência
+*.nupkg
+*.snupkg
+packages/
+*.nuspec
+
+# Arquivos de configuração locais
+appsettings.Development.json
+appsettings.Local.json
+appsettings.*.json.user
+secrets.json
+
+# Docker e dependências locais
+docker-compose.override.yml
+.env
+
+# Arquivos temporários e locais
+.idea/
+*.tmp
+*.bak
+*.swp
+*.old
+*.backup
+*~.ncr
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db

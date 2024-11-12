@@ -29,17 +29,17 @@ public sealed class Advert
     public Guid? UsuarioId { get; set; }
     public User Usuario { get; set; }
     public ICollection<Photo> Imagens { get; set; }
-    public ICollection<Optional>? Opcionais { get; }
+    public ICollection<Optional>? Opcionais { get; set; }
     
     private Advert() {}
 
-    public Advert(Guid id, string tipo, string marca, string modelo, int anoModelo, string cor, string cep,
+    public Advert(string tipo, string marca, string modelo, int anoModelo, string cor, string cep,
         string cidade, string estado, int preco, string portas, int quilometragem, string descricao, string placa,
         string cambio, DateTime dataAtualizacao, Condition condicao, string slug, bool? destaque, Guid? usuarioId,
         User usuario,
         ICollection<Photo> imagens, ICollection<Optional>? opcionais)
     {
-        Id = id;
+        Id = Guid.NewGuid();
         Tipo = tipo;
         Marca = marca;
         Modelo = modelo;
