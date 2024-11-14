@@ -14,7 +14,5 @@ namespace iserra_api.Dto
         [JsonConverter(typeof(JsonStringEnumConverter))] public Plan Plano { get; set; } = Plan.gratis;
         public string Imagem { get; set; }
         public string Senha { get; set; }
-        public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
-        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     }
 }

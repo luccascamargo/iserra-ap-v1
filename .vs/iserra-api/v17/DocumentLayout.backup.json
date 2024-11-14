@@ -1,18 +1,10 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\lucas\\workplace\\iserra-api\\",
+  "WorkspaceRootPath": "C:\\Users\\lucas\\workplace\\iserra-ap-v1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5B2839DA-7CD9-4F0A-8CAA-B983DDF3AD95}|iserra-api.csproj|c:\\users\\lucas\\workplace\\iserra-api\\dto\\advertupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5B2839DA-7CD9-4F0A-8CAA-B983DDF3AD95}|iserra-api.csproj|solutionrelative:dto\\advertupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5B2839DA-7CD9-4F0A-8CAA-B983DDF3AD95}|iserra-api.csproj|c:\\users\\lucas\\workplace\\iserra-api\\services\\advertservices\\advertservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5B2839DA-7CD9-4F0A-8CAA-B983DDF3AD95}|iserra-api.csproj|c:\\users\\lucas\\workplace\\iserra-ap-v1\\services\\advertservices\\advertservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5B2839DA-7CD9-4F0A-8CAA-B983DDF3AD95}|iserra-api.csproj|solutionrelative:services\\advertservices\\advertservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5B2839DA-7CD9-4F0A-8CAA-B983DDF3AD95}|iserra-api.csproj|c:\\users\\lucas\\workplace\\iserra-api\\controllers\\advertcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5B2839DA-7CD9-4F0A-8CAA-B983DDF3AD95}|iserra-api.csproj|solutionrelative:controllers\\advertcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -25,42 +17,20 @@
           "SelectedChildIndex": 1,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AdvertService.cs",
-              "DocumentMoniker": "C:\\Users\\lucas\\workplace\\iserra-api\\Services\\AdvertServices\\AdvertService.cs",
-              "RelativeDocumentMoniker": "Services\\AdvertServices\\AdvertService.cs",
-              "ToolTip": "C:\\Users\\lucas\\workplace\\iserra-api\\Services\\AdvertServices\\AdvertService.cs",
-              "RelativeToolTip": "Services\\AdvertServices\\AdvertService.cs",
-              "ViewState": "AgIAAFIAAAAAAAAAAAAswNEAAABKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-11T19:17:29.075Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "AdvertUpdateDto.cs",
-              "DocumentMoniker": "C:\\Users\\lucas\\workplace\\iserra-api\\Dto\\AdvertUpdateDto.cs",
-              "RelativeDocumentMoniker": "Dto\\AdvertUpdateDto.cs",
-              "ToolTip": "C:\\Users\\lucas\\workplace\\iserra-api\\Dto\\AdvertUpdateDto.cs",
-              "RelativeToolTip": "Dto\\AdvertUpdateDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwA0AAAAqAAAAAAAAAA==",
+              "Title": "AdvertService.cs",
+              "DocumentMoniker": "C:\\Users\\lucas\\workplace\\iserra-ap-v1\\Services\\AdvertServices\\AdvertService.cs",
+              "RelativeDocumentMoniker": "Services\\AdvertServices\\AdvertService.cs",
+              "ToolTip": "C:\\Users\\lucas\\workplace\\iserra-ap-v1\\Services\\AdvertServices\\AdvertService.cs",
+              "RelativeToolTip": "Services\\AdvertServices\\AdvertService.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAYwOAAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-11T20:08:53.934Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "AdvertController.cs",
-              "DocumentMoniker": "C:\\Users\\lucas\\workplace\\iserra-api\\Controllers\\AdvertController.cs",
-              "RelativeDocumentMoniker": "Controllers\\AdvertController.cs",
-              "ToolTip": "C:\\Users\\lucas\\workplace\\iserra-api\\Controllers\\AdvertController.cs",
-              "RelativeToolTip": "Controllers\\AdvertController.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAIwDUAAABUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-11T20:08:16.068Z",
+              "WhenOpened": "2024-11-14T19:08:02.249Z",
               "EditorCaption": ""
             }
           ]

@@ -13,6 +13,6 @@ namespace iserra_api.Dto {
         public string Descricao { get; set; }
         public string Cambio { get; set; }          
         public ICollection<PhotoDto> Imagens { get; set; }
-        public ICollection<OptionalDto> Opcionais { get; set; }
+        public List<Guid> Opcionais { get; set; }
     }
 }

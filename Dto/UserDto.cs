@@ -1,6 +1,5 @@
 using iserra_api.Enums;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
 
 namespace iserra_api.Dto;
 
@@ -13,7 +12,7 @@ public record UserDto
     public string Email { get; set; }
     public string Telefone { get; set; }
     public bool Ativo { get; set; }
-    [JsonConverter(typeof(StringEnumConverter))] public Plan Plano { get; set; } = Plan.gratis;
+    [JsonConverter(typeof(JsonStringEnumConverter))] public Plan Plano { get; set; } = Plan.gratis;
     public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     public string Imagem { get; set; }

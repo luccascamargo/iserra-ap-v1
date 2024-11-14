@@ -1,11 +1,12 @@
 {
   "Version": 1,
-  "Hash": "oJwIkayTffnVY80ywcfP9LTdLs4PPMDCtEziDmiZX+o=",
+  "Hash": "CVxBlMih+p1xTs4x1Gin/TP2kEH2BN8vw7snI2nDcfw=",
   "Source": "iserra-api",
   "BasePath": "_content/iserra-api",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [],
-  "Assets": []
+  "Assets": [],
+  "Endpoints": []
 }

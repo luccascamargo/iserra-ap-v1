@@ -27,8 +27,14 @@ namespace iserra_api.Services.AdvertServices {
                 return response;
             }
 
+            var optionals = await _context.Optionals.Where(opt => advertCreateDto.OptionalIds.Contains(opt.Id)).ToListAsync();
+
+            if (optionals.Count != advertCreateDto.OptionalIds.Count) {
+                response.Mensagem = "Um ou mais opcionais não encontrados";
+                return response;
+            }
+
             var imagens = advertCreateDto.Imagens.Select(img => new Photo(img.Url, img.Chave)).ToList();
-            var opcionais = advertCreateDto.Opcionais.Select(opt => new Optional(opt.Nome)).ToList();
 
             var advert = new Advert(advertCreateDto.Tipo, advertCreateDto.Marca, advertCreateDto.Modelo,
                 advertCreateDto.AnoModelo, advertCreateDto.Cor, advertCreateDto.Cep,
@@ -36,7 +42,7 @@ namespace iserra_api.Services.AdvertServices {
                 advertCreateDto.Portas, advertCreateDto.Quilometragem, advertCreateDto.Descricao,
                 advertCreateDto.Placa, advertCreateDto.Cambio, DateTime.UtcNow, Condition.REQUESTED,
                 slug,
-                advertCreateDto.Destaque, advertCreateDto.UsuarioId, user, imagens, opcionais);
+                advertCreateDto.Destaque, advertCreateDto.UsuarioId, user, imagens, optionals);
 
             await _context.AddAsync(advert);
             await _context.SaveChangesAsync();
@@ -66,7 +72,7 @@ namespace iserra_api.Services.AdvertServices {
                 Preco = advert.Preco,
                 Tipo = advert.Tipo,
                 Slug = advert.Slug,
-                Opcionais = advert.Opcionais.Select(opt => new OptionalDto { Nome = opt.Nome }).ToList(),
+                Opcionais = advert.Opcionais.Select(opt => new OptionalDto { Name = opt.Nome}).ToList(),
                 Usuario = new AdvertUserDto {
                     Email = advert.Usuario.Email,
                     Nome = advert.Usuario.Nome,
@@ -143,7 +149,7 @@ namespace iserra_api.Services.AdvertServices {
                                 Sobrenome = x.Usuario.Sobrenome,
                                 Telefone = x.Usuario.Telefone
                             },
-                            Opcionais = x.Opcionais.Select(opt => new OptionalDto { Nome = opt.Nome }).ToList(),
+                            Opcionais = x.Opcionais.Select(opt => new OptionalDto { Name = opt.Nome}).ToList(),
                             UsuarioId = x.UsuarioId
                         })
                                 .ToListAsync();
@@ -197,7 +203,7 @@ namespace iserra_api.Services.AdvertServices {
                     Sobrenome = advert.Usuario.Sobrenome,
                     Telefone = advert.Usuario.Telefone
                 },
-                Opcionais = advert.Opcionais.Select(opt => new OptionalDto { Nome = opt.Nome }).ToList(),
+                Opcionais = advert.Opcionais.Select(opt => new OptionalDto { Name = opt.Nome}).ToList(),
                 UsuarioId = advert.UsuarioId
             };
 
@@ -221,6 +227,14 @@ namespace iserra_api.Services.AdvertServices {
                 return response;
             }
 
+            var optionals = await _context.Optionals
+                .Where(opt => advertUpdateDto.Opcionais.Contains(opt.Id))
+                .ToListAsync();
+
+            if (optionals.Count != advertUpdateDto.Opcionais.Count) {
+                throw new ArgumentException("Um ou mais opcionais fornecidos não são válidos.");
+            }
+
             // Atualiza propriedades básicas do anúncio
             advert.Cor = advertUpdateDto.Cor;
             advert.Cep = advertUpdateDto.Cep;
@@ -231,25 +245,21 @@ namespace iserra_api.Services.AdvertServices {
             advert.Quilometragem = advertUpdateDto.Quilometragem;
             advert.Descricao = advertUpdateDto.Descricao;
             advert.Cambio = advertUpdateDto.Cambio;
+            advert.Opcionais = optionals;
 
-            // Remove opcionais antigos
-            _context.Optionals.RemoveRange(advert.Opcionais);
-
-            // Adiciona opcionais novos
-            advert.Opcionais = advertUpdateDto.Opcionais
-                .Select(opt => new Optional { Nome = opt.Nome, AdvertId = id })
-                .ToList();
-
-            // Remove imagens antigas
+            // Remove e adiciona imagens
             _context.Photos.RemoveRange(advert.Imagens);
+            advert.Imagens.Clear();
+            advert.Imagens = (advertUpdateDto.Imagens
+                .Select(img => new Photo(img.Url, img.Chave))).ToList();
 
-            // Adiciona imagens novas
-            advert.Imagens = advertUpdateDto.Imagens
-                .Select(img => new Photo { Url = img.Url, Chave = img.Chave, AdvertId = id })
-                .ToList();
-
-            // Salva alterações
-            await _context.SaveChangesAsync();
+            // Tenta salvar as alterações
+            try {
+                await _context.SaveChangesAsync();
+            } catch (DbUpdateConcurrencyException) {
+                response.Mensagem = "Erro ao atualizar o anúncio. Os dados foram modificados ou removidos por outra operação.";
+                return response;
+            }
 
             // Prepara o resultado para retornar ao usuário
             var result = new AdvertDto {
@@ -273,6 +283,7 @@ namespace iserra_api.Services.AdvertServices {
                 Tipo = advert.Tipo,
                 Quilometragem = advert.Quilometragem,
                 Slug = advert.Slug,
+                Opcionais = advert.Opcionais.Select(opt => new OptionalDto { Name = opt.Nome }).ToList(),
                 Imagens = advert.Imagens.Select(img => new PhotoDto { Chave = img.Chave, Url = img.Url }).ToList(),
                 Usuario = new AdvertUserDto {
                     Id = advert.Usuario.Id,
@@ -282,7 +293,6 @@ namespace iserra_api.Services.AdvertServices {
                     Sobrenome = advert.Usuario.Sobrenome,
                     Telefone = advert.Usuario.Telefone
                 },
-                Opcionais = advert.Opcionais.Select(opt => new OptionalDto { Nome = opt.Nome }).ToList(),
                 UsuarioId = advert.UsuarioId
             };
 
@@ -292,5 +302,6 @@ namespace iserra_api.Services.AdvertServices {
             return response;
         }
 
+
     }
-    }
+}

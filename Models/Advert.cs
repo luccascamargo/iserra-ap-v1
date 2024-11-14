@@ -1,6 +1,5 @@
 using System.ComponentModel.DataAnnotations;
 using iserra_api.Enums;
-using Microsoft.EntityFrameworkCore;
 
 namespace iserra_api.Models;
 

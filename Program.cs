@@ -30,7 +30,7 @@ builder.Services.AddScoped<IAdvertService, AdvertService>();
 builder.Services.AddDbContext<ApplicatonDbContext>(options =>
 {
     var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-    options.UseNpgsql(connectionString);
+    options.UseSqlServer(connectionString);
 });
 
 var app = builder.Build();

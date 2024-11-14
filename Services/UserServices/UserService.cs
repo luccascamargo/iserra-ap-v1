@@ -28,7 +28,7 @@ public class UserService : IUserService
                 Telefone = x.Telefone, 
                 Ativo = x.Ativo,
                 Plano = x.Plano,
-                Imagem = x.Imagem
+                Imagem = x.Imagem   
                 }).ToListAsync();
 
         response.Dados = users;

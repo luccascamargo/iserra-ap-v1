@@ -20,6 +20,6 @@ namespace iserra_api.Dto
         public bool? Destaque { get; set; }
         public Guid? UsuarioId { get; set; }
         public ICollection<PhotoDto> Imagens { get; set; }
-        public ICollection<OptionalDto>? Opcionais { get; set; }
+        public List<Guid> OptionalIds { get; set; }
     }
 }
